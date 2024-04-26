@@ -20,21 +20,76 @@ const restaurant = {
     return order;
   },
 
-  // openingHours: {
-  //   thu: {
-  //     open: 12,
-  //     close: 22,
-  //   },
-  //   fri: {
-  //     open: 11,
-  //     close: 23,
-  //   },
-  //   sat: {
-  //     open: 0, // Open 24 hours
-  //     close: 24,
-  //   },
-  // },
+  openingHours: {
+    thu: {
+      open: 12,
+      close: 22,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 0, // Open 24 hours
+      close: 24,
+    },
+  },
+
+  foodAvailable: {
+    mondays: {
+      morning: 'Fried Rice',
+      afternoon: 'Chicken and chips',
+      night: 'poundo Yam',
+    },
+
+    tuesdays: {
+      morning: 'Jollof Rice',
+      afternoon: 'Salad',
+      night: 'Amala',
+    },
+
+    wednesdays: {
+      morning: 'Yam and egg',
+      afternoon: 'Beans and Plantain',
+      night: 'White Rice and stew',
+    },
+
+    thursdays: {
+      morning: 'Toast Bread and tea',
+      afternoon: 'Poundo Yam',
+      night: 'Fruit',
+    },
+  },
+
+  orderDelivery: function ({
+    firstOrderIndex,
+    secondOrderIndex,
+    address,
+    time,
+  }) {
+    const foodOrdered = this.orderFood(firstOrderIndex, secondOrderIndex);
+    console.log(`Food ordered: ${foodOrdered.join(', and ')}`);
+
+    const orderAddress = address;
+    console.log(`Delivery Address: ${orderAddress}`);
+
+    const deliveryTime = time;
+    console.log(`Delivery Time: ${deliveryTime}`);
+
+    console.log(
+      `Order received!!! ${this.starterMenu[firstOrderIndex]} and ${this.mainMenu[secondOrderIndex]} will be delivered to ${address} at ${time}`
+    );
+
+    return foodOrdered;
+  },
 };
+
+restaurant.orderDelivery({
+  firstOrderIndex: 1,
+  secondOrderIndex: 1,
+  address: '10 Bode Ogungbade Street',
+  time: '2:00 PM',
+});
 
 let [, second, , fourth] = restaurant.categories;
 console.log(second, fourth);
@@ -59,3 +114,36 @@ console.log(first, array);
 // Default values
 const [p = 1, q = 1, r = 1] = [10, 8];
 console.log(p, q, r);
+
+// Destructuring Objects
+const { name, openingHours, mainMenu } = restaurant;
+console.log(name, openingHours, mainMenu);
+
+// Default Values
+const {
+  name: restaurantName = [],
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
+console.log(restaurantName, hours, tags);
+
+// Mutating Variables
+let a = 111;
+let b = 999;
+
+const obj = { a: 23, b: 7, c: 14 };
+({ a, b } = obj);
+
+console.log(a, b);
+
+// Nested Objects
+
+const {
+  fri: { open, close },
+} = openingHours;
+console.log(open, close);
+
+const {
+  thursdays: { morning, night },
+} = restaurant.foodAvailable;
+console.log({ morning }, { night });
