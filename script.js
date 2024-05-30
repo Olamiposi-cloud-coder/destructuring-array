@@ -337,3 +337,68 @@ for (let i = 0; i < menuu.length; i++) {
 for (const [i, el] of menu.entries()) {
   console.log(`${i + 1}: ${el}`);
 }
+
+const learningHours = {
+  mon: {
+    starts: '10am',
+    ends: '2pm',
+  },
+
+  tue: {
+    starts: '12pm',
+    ends: '4pm',
+  },
+};
+
+const aboutMe = {
+  name: 'Idris Olayinka Musa',
+  gender: 'Male',
+  stateOfOrigin: 'Kwara',
+  graduate: true,
+  everHadSex: true,
+
+  calcAge: function (birthYear) {
+    return 2024 - birthYear;
+  },
+
+  learningHours,
+};
+
+console.log(aboutMe.learningHours);
+console.log(aboutMe.calcAge(2000));
+
+// Testing a function
+function fibonacci(n) {
+  // Base case
+  if (n === 0 || n === 1) {
+    return n;
+  }
+  // Recursive case
+  else {
+    return fibonacci(n - 1) + fibonacci(n - 2);
+  }
+}
+
+console.log(fibonacci(3));
+
+// Looping Objects
+const properties = Object.keys(openingHours);
+console.log(properties);
+
+let openStr = `We open ${properties.length} days in a week: `;
+
+for (const day of properties) {
+  openStr += `${day}, `;
+}
+console.log(openStr);
+
+const values = Object.values(openingHours);
+console.log(values);
+
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}: ${el}`);
+}
+
+for (const [key, { open, close }] of Object.entries(openingHours)) {
+  console.log(`On ${key} we open at ${open} and close at ${close}`);
+}
