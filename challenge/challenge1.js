@@ -1,4 +1,11 @@
 // 'use strict';
+
+const scorers = {
+  Gnarby: 1,
+  Hummels: 1,
+  Lewandowski: 2,
+};
+
 const gameCont = {
   team1: 'Real Madrid',
   team2: 'Manchester City',
@@ -32,6 +39,7 @@ const gameCont = {
   ],
   score: '4:0',
   scored: ['Vini jr', 'Rodrigo', 'Joselu', 'Modric'],
+  scorers,
   date: 'May 23rd, 2024',
   odds: {
     team1: 2.2,
@@ -84,8 +92,8 @@ console.log(playersOne);
 console.log(game.scored);
 
 // Challenge One
-for (const [i, el] of game.scored.entries()) {
-  console.log(`Goal ${i + 1}: ${el}`);
+for (const [player, goals] of Object.entries(scorers)) {
+  console.log(`Goal By ${player}: ${goals}`);
 }
 
 // Challenge Two
@@ -116,3 +124,5 @@ const oddLists = [
 for (const { team, odd } of oddLists) {
   console.log(`Odd of ${team}: ${odd}`);
 }
+
+// Bonus
