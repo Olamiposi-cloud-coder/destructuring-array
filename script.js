@@ -402,3 +402,39 @@ for (const [i, el] of menu.entries()) {
 for (const [key, { open, close }] of Object.entries(openingHours)) {
   console.log(`On ${key} we open at ${open} and close at ${close}`);
 }
+
+// Sets Data Structures
+
+const ordersSet = new Set([...restaurant.mainMenu, ...restaurant.starterMenu]);
+console.log(ordersSet);
+
+console.log(ordersSet.size);
+console.log(ordersSet.has('Pasta'));
+console.log(ordersSet.add('pasta'));
+console.log(ordersSet);
+console.log(ordersSet.delete('pasta'));
+console.log(ordersSet);
+
+const staffs = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+
+console.log(...staffs);
+
+for (const staff of staffs) {
+  console.log(staff);
+}
+
+staffs.forEach(stafff => {
+  console.log(stafff);
+});
+
+staffs.forEach((staf, index) => {
+  console.log(`${index}: ${staf}`);
+});
+
+const uniqueStaffs = [...new Set(staffs)];
+console.log(uniqueStaffs);
+
+console.log(new Set(staffs).size);
+const lastName = 'cloud';
+console.log([...lastName].length);
+console.log(new Set(lastName).size);
