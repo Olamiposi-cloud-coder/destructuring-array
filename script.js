@@ -415,6 +415,23 @@ console.log(ordersSet);
 console.log(ordersSet.delete('pasta'));
 console.log(ordersSet);
 
+// Map Data structure
+
+const rest = new Map();
+rest
+  .set('name', 'Cloud Codes')
+  .set('categories', ['Pizza', 'Bucket Chicken'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'Yes, we are open :D')
+  .set(false, 'No, we are closed :(');
+
+console.log(rest.get('name'));
+console.log(`${rest.get('name')} has ${rest.get('categories')} available.`);
+
+const time = 8;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
 const staffs = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
 
 console.log(...staffs);
