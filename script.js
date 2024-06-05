@@ -429,8 +429,17 @@ rest
 console.log(rest.get('name'));
 console.log(`${rest.get('name')} has ${rest.get('categories')} available.`);
 
-const time = 8;
+const time = 20;
 console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+rest.set(document.querySelector('h1'), 'Heading');
+console.log(rest);
+
+// Getting the same result with Ternary Operator
+
+const isOpenOrClose = time > rest.get('open') && time < rest.get('close');
+console.log(isOpenOrClose);
+console.log(rest.get(isOpenOrClose ? true : false));
 
 const staffs = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
 
@@ -455,3 +464,17 @@ console.log(new Set(staffs).size);
 const lastName = 'cloud';
 console.log([...lastName].length);
 console.log(new Set(lastName).size);
+
+// Mao Iteration
+
+const question = new Map([
+  ['question', 'What is the best programming language in the world?'],
+  [1, 'JavaScript'],
+  [2, 'Java'],
+  [3, 'C'],
+  ['correct', 1],
+  [true, 'Correct 👌'],
+  [false, 'Try again'],
+]);
+
+console.log(question);
