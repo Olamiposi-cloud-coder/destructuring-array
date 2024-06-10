@@ -553,4 +553,6 @@ console.log(
 // #4
 
 for (const [minutes, event] of gameEvents) {
+  const half = minutes <= 45 ? ['First-half'] : ['Second-half'];
+  console.log(`[${half}] ${minutes}: ${event}`);
 }
