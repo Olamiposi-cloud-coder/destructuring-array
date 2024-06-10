@@ -465,7 +465,7 @@ const lastName = 'cloud';
 console.log([...lastName].length);
 console.log(new Set(lastName).size);
 
-// Mao Iteration
+// Map Iteration
 
 const question = new Map([
   ['question', 'What is the best programming language in the world?'],
@@ -478,3 +478,76 @@ const question = new Map([
 ]);
 
 console.log(question);
+
+console.log(question.get('question'));
+
+for (const [key, value] of question) {
+  if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+}
+
+const answer = 1;
+
+const checkAnswer = answer === question.get('correct');
+console.log(question.get(checkAnswer ? true : false));
+
+console.log(question.get(answer === question.get('correct')));
+
+// Converting a map back to an array
+
+const newAr = [...question];
+console.log(newAr);
+console.log(...question.keys());
+console.log(...question.values());
+
+function showName() {
+  this.name = 'Cloud';
+  this.showName = () => {
+    console.log(this.name);
+  };
+  this.times = function (n) {
+    for (let i = 0; i < n; i++) {
+      this.showName();
+    }
+  };
+}
+
+const result = new showName();
+result.times(5);
+
+// Coding challenge #3
+const gameEvents = new Map([
+  [17, '⚽ GOAL'],
+  [36, '🔁 Substitution'],
+  [47, '⚽ GOAL'],
+  [61, '🔁 Substitution'],
+  [64, '🔶 Yellow card'],
+  [69, '🔴 Red card'],
+  [70, '🔁 Substitution'],
+  [72, '🔁 Substitution'],
+  [76, '⚽ GOAL'],
+  [80, '⚽ GOAL'],
+  [92, '🔶 Yellow card'],
+]);
+
+// #1
+const eventsArray = [...gameEvents.values()];
+const events = new Set(eventsArray);
+console.log(eventsArray);
+console.log(events);
+
+// #2
+gameEvents.delete(64);
+console.log(gameEvents);
+
+// #3
+console.log(`An event happened, on average, every ${90 / gameEvents.size}`);
+
+// second way
+const totalEvents = gameEvents.size;
+const averageTime = 90 / totalEvents;
+
+console.log(
+  `An event happened, on average, every ${Math.round(averageTime)} minutes`
+);
+
+//
