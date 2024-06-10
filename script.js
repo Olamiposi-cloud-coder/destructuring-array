@@ -550,4 +550,7 @@ console.log(
   `An event happened, on average, every ${Math.round(averageTime)} minutes`
 );
 
-//
+// #4
+
+for (const [minutes, event] of gameEvents) {
+}
