@@ -556,3 +556,19 @@ for (const [minutes, event] of gameEvents) {
   const half = minutes <= 45 ? ['First-half'] : ['Second-half'];
   console.log(`[${half}] ${minutes}: ${event}`);
 }
+
+//Working with strings
+
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(typeof Number(plane[1]));
+console.log(plane.indexOf('0'));
+console.log(airline.indexOf('T'));
+
+console.log(airline.slice(4, 7));
+
+console.log(airline.slice(3, 9));
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(0, -2));
