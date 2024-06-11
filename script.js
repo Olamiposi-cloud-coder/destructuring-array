@@ -572,3 +572,14 @@ console.log(airline.slice(4, 7));
 console.log(airline.slice(3, 9));
 console.log(airline.slice(0, airline.indexOf(' ')));
 console.log(airline.slice(0, -2));
+
+function checkMiddleSeat(seat) {
+  const seatLetter = seat.slice(-1);
+  if (seatLetter === 'C' || seatLetter === 'E')
+    console.log(`You've got the middle seat`);
+  else console.log(`You've got lucky`);
+}
+
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
